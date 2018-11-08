@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace kata1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            String[] Wonders =  { "compass", "gear", "tablet" };
+            int score = 0;
+            Shuffle(Wonders);
+            int c = _random.Next(Wonders[0].Length, 10);
+            int g = _random.Next(Wonders[1].Length, 10);
+            int t = _random.Next(Wonders[2].Length, 10);
+            c *= c;
+            g *= g;
+            t *= t;
+            score += c + g + t;
+           
+
+            Console.WriteLine("Compass is : {0}, Gear  is : {1},  tablet  is : {2} and the total score is : {3}", c , g , t, score);
+
+            foreach (string value in Wonders)
+            {
+                Console.WriteLine(value);
+            }
+
+            if (Wonders[0] == "compass" && Wonders[1] == "gear" && Wonders[2] == "tablet")
+            {
+                score += 7;
+                Console.WriteLine($"You got the right sequence!! your score is:{score}");
+            }
+            else
+            {
+
+                Console.WriteLine($"NOT a sequence: your score is : {score}");
+
+            }
+
+        }
+
+        static Random _random = new Random();
+
+        static void Shuffle<T>(T[] array)
+        {
+            int n = array.Length;
+            for (int i = 0; i < n; i++)
+            {
+                // Use Next on random instance with an argument.
+                // ... The argument is an exclusive bound.
+                //     So we will not go past the end of the array.
+                int r = i + _random.Next(n - i);
+                T t = array[r];
+                array[r] = array[i];
+                array[i] = t;
+            }
+        }
+    }
+}
