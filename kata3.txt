@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+**************Write a function called repeatStr which repeats the given string string exactly n times.**********************
+
+namespace kata3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(repeatStr(10, "Hello"));
+            repeat(4, "Carla");
+        }
+
+        public static string repeatStr(int n, string s)
+        {
+           return string.Concat(Enumerable.Repeat($"{s}", n));
+           
+        }
+        public static string repeat(int count, string input)
+        {
+            string ret = "";
+
+            for (var x = 0; x < count; x++)
+            {
+                ret += input;
+            }
+            Console.WriteLine(ret);
+
+            return ret;
+          
+        }
+
+    }
+
+
+    
+}
